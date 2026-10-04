@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { useThemeLang } from '../i18n/ThemeLangContext'
 import { SHAPES } from '../lib/palette'
 import { STATUS_TO_KEY, type IncidentProperties } from '../types/domain'
@@ -15,6 +16,10 @@ export function PhoneTopBar({
 }) {
   const { ed: E, n } = useThemeLang()
   const navKeys = Object.keys(n.nav) as NavKey[]
+  const activeNav = useRef<HTMLButtonElement>(null)
+  useEffect(() => {
+    activeNav.current?.scrollIntoView({ block: 'nearest', inline: 'nearest' })
+  }, [nav])
   return (
     <div className="absolute inset-x-0 top-0 z-30" style={{ background: E.bg, borderBottom: `1px solid ${E.hair}` }}>
       <div className="flex h-11 items-center gap-2 px-3.5">
@@ -30,6 +35,8 @@ export function PhoneTopBar({
           return (
             <button
               key={key}
+              ref={on ? activeNav : undefined}
+              aria-current={on ? 'page' : undefined}
               onClick={() => onNavChange(key)}
               className="flex items-center gap-1.5 whitespace-nowrap"
               style={{ border: 'none', background: 'transparent', color: on ? E.ink : E.mute, fontWeight: on ? 600 : 400, fontSize: 13, cursor: 'pointer', fontFamily: 'inherit' }}

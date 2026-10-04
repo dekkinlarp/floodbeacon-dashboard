@@ -50,6 +50,8 @@ to it (user POV)`, `Driving it with drive.mjs`, `Gotchas`.
 
 ## Features
 
+- [Responder access replay](./access-replay.md) — real historical gauge values,
+  hypothetical network access, daily playback and two-day hindsight explanations.
 - [Routes satellite imagery](./routes-imagery.md) — real Germany satellite date
   comparison, camera-preserving date changes, bridge review square and findings.
 - [Incident board](./incident-board.md) — severity-sorted list, selecting an incident, status

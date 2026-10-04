@@ -14,6 +14,7 @@ import { MapCanvas, type IncidentFeature, type MapCanvasHandle } from './map/Map
 import { BriefingPage } from './pages/BriefingPage'
 import { LayersScenariosPage, type LonFlags, type ScenarioKey } from './pages/LayersScenariosPage'
 import { RoutesImageryView } from './routes/RoutesImageryView'
+import { AccessReplayView } from './access/AccessReplayView'
 import type { FloodEventMeta, IncidentProperties, Report, RouteProperties, TimeseriesFile } from './types/domain'
 
 const SCN_DELTA: Record<ScenarioKey, number> = { cur: 0, p05: 0.15, p10: 0.3, m05: -0.15 }
@@ -40,7 +41,7 @@ function AppShell() {
   const routes = useMemo<RouteProperties[]>(() => (routesFc?.features ?? []).map((f) => f.properties as RouteProperties), [routesFc])
 
   const [side, setSide] = useState(true)
-  const [nav, setNav] = useState<NavKey>('incidents')
+  const [nav, setNav] = useState<NavKey>(() => new URLSearchParams(window.location.search).get('view') === 'response' ? 'response' : 'incidents')
   const [scn, setScn] = useState<ScenarioKey>('cur')
   const [paletteMode, setPaletteMode] = useState<'search' | 'explore' | null>(null)
   const [query, setQuery] = useState('')
@@ -117,9 +118,10 @@ function AppShell() {
   const isLayersPg = !isPhone && (nav === 'layers' || nav === 'scenarios')
   const isBrief = !isPhone && nav === 'briefings'
   const isRoutes = nav === 'routes'
-  const isMap = !isRoutes && (isPhone || nav === 'incidents' || nav === 'reports')
+  const isResponse = nav === 'response'
+  const isMap = !isRoutes && !isResponse && (isPhone || nav === 'incidents' || nav === 'reports')
 
-  if (!incidentsFc || !routesFc || !reports || !timeseries || !floodEvent || !current) {
+  if (!isResponse && (!incidentsFc || !routesFc || !reports || !timeseries || !floodEvent || !current)) {
     return (
       <div className="flex h-screen items-center justify-center bg-black text-white">
         <span className="font-mono text-sm text-neutral-400">Loading FloodBeacon…</span>
@@ -129,7 +131,7 @@ function AppShell() {
 
   return (
     <div className="relative h-screen w-screen overflow-hidden" style={{ color: ed.ink, fontSize: 13 }}>
-      {!isRoutes && <MapCanvas
+      {!isRoutes && !isResponse && <MapCanvas
         ref={mapHandleRef}
         view={view}
         layer={layer}
@@ -144,6 +146,7 @@ function AppShell() {
       />}
 
       {isRoutes && <RoutesImageryView />}
+      {isResponse && <AccessReplayView />}
 
       {!isPhone && (
         <TopNav
@@ -157,7 +160,7 @@ function AppShell() {
             setPaletteMode('explore')
             setQuery('')
           }}
-          eventName={isRoutes ? (lang === 'th' ? 'หุบเขา Ahr · เยอรมนี' : 'Ahr Valley · Germany') : eventName ?? ''}
+          eventName={isResponse ? (lang === 'th' ? 'เมอร์ริตต์ · บริติชโคลัมเบีย' : 'Merritt · British Columbia') : isRoutes ? (lang === 'th' ? 'หุบเขา Ahr · เยอรมนี' : 'Ahr Valley · Germany') : eventName ?? ''}
         />
       )}
 
@@ -183,7 +186,7 @@ function AppShell() {
             selectedId={selectedId}
             onSelectIncident={handleSelectIncident}
             routes={routes}
-            reports={reports}
+            reports={reports ?? []}
             stamp={stamp}
             notLatest={notLatest}
             peopleExposed={current.people_exposed}
@@ -206,7 +209,7 @@ function AppShell() {
         </>
       )}
 
-      {isPhone && !isRoutes && (
+      {isPhone && !isRoutes && !isResponse && (
         <>
           <PhoneLayerToggle layer={layer} onChange={setLayer} />
           <PhoneSheet stamp={stamp} incidents={incidents} selectedId={selectedId} onSelectIncident={handleSelectIncident} />
