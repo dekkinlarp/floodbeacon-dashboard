@@ -54,7 +54,7 @@ export function TopNav({
                 fontSize: 13,
                 cursor: 'pointer',
                 transition: 'color 160ms, border-color 160ms',
-                font: 'inherit',
+                fontFamily: 'inherit',
               }}
             >
               {n.nav[key]}
@@ -62,7 +62,7 @@ export function TopNav({
                 className="font-mono text-[10.5px] leading-4 h-4 rounded-full px-1.5"
                 style={{ border: `1px solid ${E.hair}`, color: E.mute, fontWeight: 400 }}
               >
-                {n.navCounts[i]}
+                {key === 'routes' ? 1 : n.navCounts[i]}
               </span>
             </button>
           )

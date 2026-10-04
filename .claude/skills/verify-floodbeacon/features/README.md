@@ -8,8 +8,11 @@ the recipe.
 
 - Launch FloodBeacon at `http://localhost:<PORT>` (default `5190`) with
   `node ../scripts/drive.mjs start --port <PORT> --cdp-port <CDP_PORT>`.
-- No seed data to set up — the app reads static files from `public/mock/`, which are
-  committed and identical on every run.
+- Other tabs read committed `public/mock/` files. The Routes satellite view needs
+  the FastAPI backend running with the shared hosted dev `DATABASE_URL` and the
+  Germany imagery catalog already published by the processing owner. See
+  [Routes satellite imagery](./routes-imagery.md) for setup; verification never
+  seeds or deletes shared database records.
 - Run `node ../scripts/drive.mjs doctor` and require `httpOk: true`, `browserOk: true`,
   and `title: "FloodBeacon"`.
 - Never drive an instance this run did not start (check `doctor`'s `pids` against what
@@ -47,6 +50,8 @@ to it (user POV)`, `Driving it with drive.mjs`, `Gotchas`.
 
 ## Features
 
+- [Routes satellite imagery](./routes-imagery.md) — real Germany satellite date
+  comparison, camera-preserving date changes, bridge review square and findings.
 - [Incident board](./incident-board.md) — severity-sorted list, selecting an incident, status
   and severity display.
 - [3D flood map](./flood-map.md) — map renders, flood extent/road/route layers, camera
@@ -55,5 +60,5 @@ to it (user POV)`, `Driving it with drive.mjs`, `Gotchas`.
 - [Legend and provenance](./legend-and-provenance.md) — status legend, observation-vs-estimate
   badge.
 
-Not yet mapped (not yet built in the app, see `README.md`'s "Not built yet"): routing view,
+Not yet mapped (not yet built in the app, see `README.md`'s "Not built yet"): route planning,
 field reached/cleared feedback, briefing download, share outputs.
