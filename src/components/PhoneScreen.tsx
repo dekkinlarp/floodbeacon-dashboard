@@ -32,7 +32,7 @@ export function PhoneTopBar({
               key={key}
               onClick={() => onNavChange(key)}
               className="flex items-center gap-1.5 whitespace-nowrap"
-              style={{ border: 'none', background: 'transparent', color: on ? E.ink : E.mute, fontWeight: on ? 600 : 400, fontSize: 13, cursor: 'pointer', font: 'inherit' }}
+              style={{ border: 'none', background: 'transparent', color: on ? E.ink : E.mute, fontWeight: on ? 600 : 400, fontSize: 13, cursor: 'pointer', fontFamily: 'inherit' }}
             >
               {n.nav[key]}
             </button>

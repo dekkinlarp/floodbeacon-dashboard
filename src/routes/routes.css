@@ -28,6 +28,9 @@
 .routes-thumbnails span { display:block; padding:8px; font-size:10px; font-family:var(--font-mono); }
 .routes-link { color:var(--routes-accent); text-decoration:none; font-size:12px; }
 .routes-link:hover { text-decoration:underline; }
+.routes-focus { display:block; margin:0 0 13px; font-size:11px!important; }
+.routes-layer-toggle { display:flex; gap:9px; align-items:center; min-height:36px; cursor:pointer; }
+.routes-layer-toggle input { accent-color:#2689a3; width:16px; height:16px; }
 .routes-limitations summary { cursor:pointer; color:var(--routes-muted); font-size:12px; }
 .routes-limitations ul { padding-left:17px; color:var(--routes-muted); font-size:11px; line-height:1.6; }
 .routes-limitations li { margin-top:9px; }

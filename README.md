@@ -18,9 +18,11 @@ Opens on `http://localhost:5173`. The app reads static GeoJSON/JSON from `public
 
 ### Satellite bridge view (Routes)
 
-The **Routes** tab reads Germany's Rech bridge observations from the FloodBeacon
-API. It shows real satellite pixels from 11 February and 18 July 2021, dated
-manual bridge findings, and a separate Copernicus agency assessment. Changing
+The **Routes** tab reads Germany's Ahr Valley imagery and Rech bridge observations
+from the FloodBeacon API. It opens on the flood study area, with dated regional
+satellite tiles and a high-resolution Rech detail patch from 11 February and
+18 July 2021. Bridge findings are manual reviews; Copernicus agency assessments
+are shown separately. Changing
 date keeps the map camera in place. The square marks a review area; failure time
 and nearby route safety are unknown.
 
@@ -34,8 +36,11 @@ uv run --locked --env-file .env uvicorn floodbeacon.api:app --reload --port 8000
 
 The processing owner publishes the imagery catalog once to the shared database.
 Frontend developers need no PostgreSQL server, raw imagery, or processing tools.
-Small Git-tracked PNGs are served by FastAPI and placed on the map with their
-geographic corners; this view needs no external basemap or tile service.
+Git-tracked regional XYZ tiles and detail PNGs are served by FastAPI. Date
+changes keep the map camera in place. The regional scenes have coverage gaps;
+empty areas mean no observation. The agency flood extent is a retrospective
+18 July assessment and only appears on the post-flood date. This view needs no
+external basemap or tile service.
 
 In this frontend repo:
 
@@ -45,7 +50,9 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Open **Routes**, change the observation date, pan/zoom, and click the bridge square.
+Open **Routes**, pan/zoom across the Ahr study area, and click the bridge marker
+or **Zoom to bridge** for the detailed review square. Use **View whole area**
+to return to the regional overview, and change dates to compare the same place.
 The default API origin is `http://localhost:8000`; restart Vite after changing it.
 The API also publishes Libya and Nepal cases, while the current Routes demo
 selects `ahr-2021`. Other tabs still use the existing Thailand mock data.

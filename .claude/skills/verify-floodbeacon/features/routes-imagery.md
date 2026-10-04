@@ -1,21 +1,25 @@
 # Routes satellite imagery
 
-The Routes tab shows real satellite observations of Nepomukbrücke in Rech,
-Germany, on 11 February and 18 July 2021. Changing the acquisition date updates
+The Routes tab opens on the Ahr Valley study area with dated regional satellite
+tiles and high-resolution observations of Nepomukbrücke in Rech, Germany, on
+11 February and 18 July 2021. Changing the acquisition date updates
 the pixels and manual bridge finding while preserving the camera. Clicking the
 review square opens a dated finding. The detail panel separates manual review
 from the Copernicus agency assessment and labels exact failure time unknown.
 
 ## Sub-features
 
-- `routes-load` displays the post-event satellite image, complete bridge square,
+- `routes-load` displays the post-event regional satellite tiles, a clickable bridge marker,
   manual finding, observation date, and visible source/license attribution.
 - `routes-dates` changes between the actual before/after observations without
   changing map position or zoom; the status changes from missing span to
   crossing visible.
 - `routes-bridge-click` opens a map popup containing bridge name, date, and
   manual finding. Date changes dismiss the old popup to prevent stale findings.
-- `routes-map-controls` allows drag panning, zooming, and Back to bridge reset.
+- `routes-map-controls` allows regional drag panning, zooming, bridge fly-to, and View whole area reset.
+- `routes-agency-extent` overlays the actual Copernicus retrospective extent on
+  the post-flood date only; the checkbox toggles it. The pre-flood date must not
+  show the later extent as observed inundation.
 - `routes-evidence` shows a separate Destroyed agency grade and source link,
   before/after thumbnails, and a detailed comparison link.
 - `routes-responsive` retains date controls, attribution, scrollable findings,
@@ -29,7 +33,8 @@ from the Copernicus agency assessment and labels exact failure time unknown.
 2. Use either date button in the bottom panel or a dated thumbnail in the
    evidence panel. Pan and zoom to inspect the same bridge location.
 3. Click inside the square on the map to read that date's finding. Use
-   **Back to bridge** to restore the initial map view.
+   **View whole area** to restore the regional overview. Use **Zoom to bridge** to inspect the detailed
+   review square. Regional bridge markers also fly to the bridge when clicked.
 4. Scroll the evidence panel for the agency source and coverage limitations.
 
 ## Driving it with drive.mjs
@@ -49,21 +54,26 @@ From the repository root:
 ```bash
 node .claude/skills/verify-floodbeacon/scripts/drive.mjs goto /
 node .claude/skills/verify-floodbeacon/scripts/drive.mjs click --role button --name Routes
-node .claude/skills/verify-floodbeacon/scripts/drive.mjs wait --role button --name "Back to bridge"
+node .claude/skills/verify-floodbeacon/scripts/drive.mjs wait --role button --name "View whole area"
+node .claude/skills/verify-floodbeacon/scripts/drive.mjs screenshot --path artifacts/verify-floodbeacon/routes-region_after.png
+node .claude/skills/verify-floodbeacon/scripts/drive.mjs click --role button --name "Zoom to bridge"
 node .claude/skills/verify-floodbeacon/scripts/drive.mjs screenshot --path artifacts/verify-floodbeacon/routes-imagery_after.png
 node .claude/skills/verify-floodbeacon/scripts/drive.mjs snapshot --path artifacts/verify-floodbeacon/routes-imagery_after.aria.yaml
 node .claude/skills/verify-floodbeacon/scripts/drive.mjs click --role button --name "Show 2021-02-11"
 node .claude/skills/verify-floodbeacon/scripts/drive.mjs screenshot --path artifacts/verify-floodbeacon/routes-imagery_before.png
 node .claude/skills/verify-floodbeacon/scripts/drive.mjs snapshot --path artifacts/verify-floodbeacon/routes-imagery_before.aria.yaml
 node .claude/skills/verify-floodbeacon/scripts/drive.mjs click --role button --name "Show 2021-07-18"
-node .claude/skills/verify-floodbeacon/scripts/drive.mjs click --role button --name "Back to bridge"
+node .claude/skills/verify-floodbeacon/scripts/drive.mjs click --role button --name "View whole area"
 node .claude/skills/verify-floodbeacon/scripts/drive.mjs console
 ```
 
 Check screenshots show different real pixels at the same location and a full
 square around the bridge. Check snapshots show the expected observed date,
 manual assessment, Unknown failure time, and separate agency evidence. Inspect
-the console for failed API/PNG requests or map errors.
+the console for failed API/PNG/XYZ tile requests or map errors. Capture the regional view
+before flying to the bridge, pan to a second part of the study area, change date,
+and confirm that camera position stays unchanged. Coverage gaps must remain
+visibly unknown.
 
 Map-square clicks and drag panning require a manual browser or computer-use
 pass because this helper exposes only role-based clicks. Capture the opened

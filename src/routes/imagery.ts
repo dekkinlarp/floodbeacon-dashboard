@@ -45,6 +45,17 @@ export interface Observation {
   label: string
   images: SatelliteImage[]
   bridges: GeoJSON.FeatureCollection<GeoJSON.Polygon, BridgeFinding>
+  regional_tiles?: {
+    url: string
+    bounds: Bounds
+    minzoom: number
+    maxzoom: number
+    tile_size: number
+    attribution: string
+    license: string
+    license_url: string
+    provenance: Record<string, unknown>
+  } | null
 }
 
 export interface ImageryCatalog {
@@ -52,6 +63,8 @@ export interface ImageryCatalog {
   name: string
   country: string
   bounds: Bounds
+  study_bounds?: Bounds | null
+  flood_extent?: GeoJSON.FeatureCollection | null
   run_id: string
   generated_at: string
   bridges: Bridge[]
