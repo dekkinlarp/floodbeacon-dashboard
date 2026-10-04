@@ -1,0 +1,46 @@
+[
+  {
+    "id": "RPT-001",
+    "received_at": "2026-09-28T17:40:00+07:00",
+    "district": "Phra Nakhon Si Ayutthaya",
+    "status": "at_risk",
+    "title": "Water in homes, river bank",
+    "title_th": "น้ำเข้าบ้าน ริมแม่น้ำ",
+    "summary": "Twelve reports from the canal side.",
+    "summary_th": "รายงาน 12 รายการจากฝั่งคลอง",
+    "time": "17:40"
+  },
+  {
+    "id": "RPT-002",
+    "received_at": "2026-09-28T16:55:00+07:00",
+    "district": "Phra Nakhon Si Ayutthaya",
+    "status": "inundated",
+    "title": "Road under water near the bridge",
+    "title_th": "ถนนใกล้สะพานถูกน้ำท่วม",
+    "summary": "Two drivers turned back.",
+    "summary_th": "คนขับรถสองคนต้องย้อนกลับ",
+    "time": "16:55"
+  },
+  {
+    "id": "RPT-003",
+    "received_at": "2026-09-28T15:20:00+07:00",
+    "district": "Phra Nakhon Si Ayutthaya",
+    "status": "at_risk",
+    "title": "Elderly resident needs transport",
+    "title_th": "ผู้สูงอายุต้องการพาหนะ",
+    "summary": "Near the school.",
+    "summary_th": "ใกล้โรงเรียน",
+    "time": "15:20"
+  },
+  {
+    "id": "RPT-004",
+    "received_at": "2026-09-28T14:05:00+07:00",
+    "district": "Phra Nakhon Si Ayutthaya",
+    "status": "clear",
+    "title": "Boat landing usable",
+    "title_th": "ท่าเรือใช้งานได้",
+    "summary": "Pa Sak, north bank.",
+    "summary_th": "แม่น้ำป่าสัก ฝั่งเหนือ",
+    "time": "14:05"
+  }
+]

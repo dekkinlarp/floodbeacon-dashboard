@@ -1,0 +1,160 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "hosp",
+        "type": "hospital",
+        "name": "District hospital",
+        "name_th": "โรงพยาบาลอำเภอ",
+        "short_name": "District hospital",
+        "short_name_th": "โรงพยาบาลอำเภอ",
+        "meta": "0/3 roads open",
+        "meta_th": "เปิด 0/3",
+        "desc": "Road access cut off, two routes remain.",
+        "desc_th": "ถนนเข้าถึงถูกตัด เหลือสองเส้นทาง",
+        "long": "The hospital sits inside the highest response class. Both the north and east approaches are under water; the south levee road is the only way in.",
+        "long_th": "โรงพยาบาลอยู่ในระดับความสำคัญสูงสุด ทางเข้าด้านเหนือและตะวันออกถูกน้ำท่วม เหลือถนนคันคลองด้านใต้เป็นทางเดียวที่เข้าได้",
+        "metrics": [
+          { "k": "Road access", "v": "0 of 3 open · Observed" },
+          { "k": "Priority class", "v": "Critical · Estimate" },
+          { "k": "Water at entrance", "v": "1.5–2.5 m · Estimate" }
+        ],
+        "metrics_th": [
+          { "k": "ทางเข้าถนน", "v": "เปิด 0 จาก 3 · สังเกตการณ์" },
+          { "k": "ระดับความสำคัญ", "v": "วิกฤต · ประมาณการ" },
+          { "k": "น้ำที่ทางเข้า", "v": "1.5–2.5 ม. · ประมาณการ" }
+        ],
+        "severity": 95,
+        "population_affected": 0,
+        "status": "cut_off",
+        "last_updated": "2026-09-28T18:05:00+07:00"
+      },
+      "geometry": { "type": "Point", "coordinates": [100.5666, 14.3550] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "bridge",
+        "type": "bridge",
+        "name": "River bridge approach",
+        "name_th": "เชิงสะพานข้ามแม่น้ำ",
+        "short_name": "Bridge approach",
+        "short_name_th": "เชิงสะพาน",
+        "meta": "0.9 m",
+        "meta_th": "0.9 ม.",
+        "desc": "Approach under about 0.9 m of water, closed to vehicles.",
+        "desc_th": "เชิงสะพานมีน้ำลึกราว 0.9 ม. รถผ่านไม่ได้",
+        "long": "The bridge approach is flooded on the east side. Light vehicles cannot pass.",
+        "long_th": "เชิงสะพานฝั่งตะวันออกถูกน้ำท่วม รถเล็กผ่านไม่ได้",
+        "metrics": [
+          { "k": "Depth", "v": "0.6–1.0 m · Estimate" },
+          { "k": "Detour", "v": "14 km via Moo 3" },
+          { "k": "Seen", "v": "Sept 28 · Observed" }
+        ],
+        "metrics_th": [
+          { "k": "ความลึก", "v": "0.6–1.0 ม. · ประมาณการ" },
+          { "k": "ทางเลี่ยง", "v": "14 กม. ผ่านหมู่ 3" },
+          { "k": "พบล่าสุด", "v": "28 ก.ย. · สังเกตการณ์" }
+        ],
+        "severity": 70,
+        "population_affected": 0,
+        "status": "inundated",
+        "last_updated": "2026-09-28T18:05:00+07:00"
+      },
+      "geometry": { "type": "Point", "coordinates": [100.5566, 14.352] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "pump",
+        "type": "pump",
+        "name": "Wat Phra Ram temple grounds",
+        "name_th": "ลานวัดพระราม",
+        "short_name": "Wat Phra Ram",
+        "short_name_th": "วัดพระราม",
+        "meta": "1.2 m",
+        "meta_th": "1.2 ม.",
+        "desc": "Grounds under water since the Sept 22 pass.",
+        "desc_th": "ลานวัดถูกน้ำท่วมตั้งแต่รอบ 22 ก.ย.",
+        "long": "Water has covered the temple grounds since the Sept 22 pass. Visitors were moved out.",
+        "long_th": "น้ำท่วมลานวัดตั้งแต่รอบ 22 ก.ย. ผู้มาเยือนถูกอพยพออกแล้ว",
+        "metrics": [
+          { "k": "Depth", "v": "1.0–1.5 m · Estimate" },
+          { "k": "Last seen dry", "v": "Sept 22 · Observed" }
+        ],
+        "metrics_th": [
+          { "k": "ความลึก", "v": "1.0–1.5 ม. · ประมาณการ" },
+          { "k": "แห้งล่าสุด", "v": "22 ก.ย. · สังเกตการณ์" }
+        ],
+        "severity": 55,
+        "population_affected": 0,
+        "status": "inundated",
+        "last_updated": "2026-09-28T18:05:00+07:00"
+      },
+      "geometry": { "type": "Point", "coordinates": [100.56168, 14.35416] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "school",
+        "type": "school",
+        "name": "Laboratory School shelter",
+        "name_th": "ศูนย์พักพิง รร.สาธิต มรภ.อยุธยา",
+        "short_name": "School shelter",
+        "short_name_th": "ศูนย์พักพิง",
+        "meta": "420 sheltered",
+        "meta_th": "พักพิง 420 คน",
+        "desc": "Shelter holds 420 people, water within 200 m.",
+        "desc_th": "พักพิง 420 คน น้ำห่างไม่ถึง 200 ม.",
+        "long": "Dry today, but the nearest water edge is within 200 m and the access road is low.",
+        "long_th": "วันนี้ยังแห้ง แต่ขอบน้ำที่ใกล้ที่สุดอยู่ไม่ถึง 200 ม. และถนนเข้าออกอยู่ในที่ต่ำ",
+        "metrics": [
+          { "k": "Sheltered", "v": "420 people" },
+          { "k": "Edge distance", "v": "≈ 200 m · Estimate" }
+        ],
+        "metrics_th": [
+          { "k": "คนพักพิง", "v": "420 คน" },
+          { "k": "ระยะจากขอบน้ำ", "v": "≈ 200 ม. · ประมาณการ" }
+        ],
+        "severity": 40,
+        "population_affected": 420,
+        "status": "at_risk",
+        "last_updated": "2026-09-28T18:05:00+07:00"
+      },
+      "geometry": { "type": "Point", "coordinates": [100.56436, 14.34735] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "reports",
+        "type": "report",
+        "name": "River-bank reports, Pa Sak",
+        "name_th": "รายงานจากประชาชน ริมแม่น้ำป่าสัก",
+        "short_name": "Citizen reports",
+        "short_name_th": "รายงานประชาชน",
+        "meta": "12 reports",
+        "meta_th": "12 รายงาน",
+        "desc": "Twelve unverified reports from the river bank.",
+        "desc_th": "รายงานที่ยังไม่ยืนยัน 12 รายการจากริมแม่น้ำ",
+        "long": "Residents report water entering homes. None confirmed by a responder yet.",
+        "long_th": "ผู้อยู่อาศัยรายงานน้ำเข้าบ้าน ยังไม่มีผู้ตอบสนองยืนยัน",
+        "metrics": [
+          { "k": "Reports", "v": "12 · Unverified" },
+          { "k": "Latest", "v": "Sept 28, 17:40 ICT" }
+        ],
+        "metrics_th": [
+          { "k": "รายงาน", "v": "12 · ยังไม่ยืนยัน" },
+          { "k": "ล่าสุด", "v": "28 ก.ย. 17:40 น." }
+        ],
+        "severity": 35,
+        "population_affected": 0,
+        "status": "at_risk",
+        "unverified": true,
+        "last_updated": "2026-09-28T17:40:00+07:00"
+      },
+      "geometry": { "type": "Point", "coordinates": [100.5566, 14.3406] }
+    }
+  ]
+}

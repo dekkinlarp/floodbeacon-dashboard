@@ -1,0 +1,9 @@
+{
+  "acquired_at": "2026-09-28T18:05:00+07:00",
+  "source": "Sentinel-1 radar",
+  "method": "SAR change detection + DEM (synthetic for this demo — teammate 1's real flood_polygons.geojson will replace src/lib/geometry.ts's procedural generator)",
+  "district": "Phra Nakhon Si Ayutthaya District",
+  "district_th": "อำเภอพระนครศรีอยุธยา",
+  "event": "Sept 2026 central plain flood",
+  "event_th": "น้ำท่วมที่ราบภาคกลาง ก.ย. 2569"
+}

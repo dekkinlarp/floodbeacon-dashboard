@@ -1,0 +1,10 @@
+{
+  "district": "Phra Nakhon Si Ayutthaya",
+  "series": [
+    { "acquired_at": "2026-09-04T18:05:00+07:00", "flood_factor": 0.15, "flooded_area_km2": 12.4, "people_exposed": 3100, "roads_impassable": 6, "shelters_at_risk": 0 },
+    { "acquired_at": "2026-09-10T18:05:00+07:00", "flood_factor": 0.5, "flooded_area_km2": 31.8, "people_exposed": 7800, "roads_impassable": 17, "shelters_at_risk": 1 },
+    { "acquired_at": "2026-09-16T18:05:00+07:00", "flood_factor": 0.9, "flooded_area_km2": 58.2, "people_exposed": 12900, "roads_impassable": 31, "shelters_at_risk": 2 },
+    { "acquired_at": "2026-09-22T18:05:00+07:00", "flood_factor": 1.04, "flooded_area_km2": 64.7, "people_exposed": 14600, "roads_impassable": 38, "shelters_at_risk": 2 },
+    { "acquired_at": "2026-09-28T18:05:00+07:00", "flood_factor": 1, "flooded_area_km2": 61.3, "people_exposed": 14200, "roads_impassable": 36, "shelters_at_risk": 2 }
+  ]
+}

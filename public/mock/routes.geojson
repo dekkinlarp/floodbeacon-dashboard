@@ -1,0 +1,65 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "status": "at_risk",
+        "name": "Hospital via the river bridge",
+        "name_th": "โรงพยาบาลผ่านสะพานข้ามแม่น้ำ",
+        "desc": "14 km, passes the flooded approach.",
+        "desc_th": "14 กม. ผ่านเชิงสะพานที่น้ำท่วม",
+        "eta": "38 min"
+      },
+      "geometry": { "type": "LineString", "coordinates": [[100.5466, 14.3652], [100.5566, 14.352], [100.5666, 14.355]] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "status": "at_risk",
+        "name": "Hospital via the levee road",
+        "name_th": "โรงพยาบาลผ่านถนนคันคลอง",
+        "desc": "High-clearance vehicles only.",
+        "desc_th": "เฉพาะรถที่มีความสูงใต้ท้องรถมาก",
+        "eta": "52 min"
+      },
+      "geometry": { "type": "LineString", "coordinates": [[100.5466, 14.3652], [100.56, 14.36], [100.5666, 14.355]] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "status": "clear",
+        "name": "School shelter from the north",
+        "name_th": "ศูนย์พักพิงโรงเรียนจากทางเหนือ",
+        "desc": "Dry road, 6 km.",
+        "desc_th": "ถนนแห้ง 6 กม.",
+        "eta": "16 min"
+      },
+      "geometry": { "type": "LineString", "coordinates": [[100.566, 14.352], [100.56436, 14.34735]] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "status": "cut_off",
+        "name": "Wat Phra Ram, last stretch",
+        "name_th": "วัดพระราม ช่วงสุดท้าย",
+        "desc": "Final 800 m by boat.",
+        "desc_th": "ช่วงสุดท้าย 800 ม. โดยเรือ",
+        "eta": "45 min"
+      },
+      "geometry": { "type": "LineString", "coordinates": [[100.5666, 14.355], [100.56168, 14.35416]] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "status": "at_risk",
+        "name": "River-bank settlement",
+        "name_th": "ชุมชนริมแม่น้ำ",
+        "desc": "Reached on foot from the bridge.",
+        "desc_th": "เดินเท้าจากสะพาน",
+        "eta": "60 min"
+      },
+      "geometry": { "type": "LineString", "coordinates": [[100.5566, 14.352], [100.5566, 14.3406]] }
+    }
+  ]
+}
