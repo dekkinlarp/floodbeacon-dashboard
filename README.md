@@ -59,6 +59,22 @@ selects `ahr-2021`. Other tabs still use the existing Thailand mock data.
 
 ## What's here
 
+### Responder access replay (Response)
+
+Open **Response** for the November 2021 Merritt access-planning demo. It starts
+on November 13, before the illustrative access loss, and shows real ECCC daily
+river stage/discharge alongside a two-day historical hindsight outlook. Use
+Play, Restart or the date slider, then select a planning area to see which
+assumed corridor thresholds affect its access. Source flags and provenance
+remain visible; planning areas, network connections and closure rules are
+illustrative rather than documented historical community isolation.
+
+This tab reads the committed `public/data/access-replay.json` and uses an SVG
+network diagram, so it needs no backend, map tiles or forecasting service.
+For reproduction, input sources and the future forecast adapter, see
+[the replay documentation](docs/access-replay.md) and
+[the full backend data/design document](https://github.com/dekkinlarp/floodbeacon-satellite/blob/tarit/access-replay-data/docs/access-replay.md).
+
 This follows the "FloodBeacon Editorial" design (ported from a design export): raw
 MapLibre GL (no deck.gl) with live classification of real OpenStreetMap buildings/roads
 against a procedural flood polygon, full EN/TH bilingual copy, and light/dark themes.

@@ -22,7 +22,7 @@ export interface LimitEntry {
 }
 
 export interface Strings {
-  nav: { incidents: string; routes: string; reports: string; layers: string; scenarios: string; briefings: string }
+  nav: { incidents: string; routes: string; reports: string; layers: string; scenarios: string; briefings: string; response: string }
   navCounts: number[]
   search: string
   explore: string
@@ -92,8 +92,8 @@ export interface Strings {
 
 export const STRINGS: Record<Lang, Strings> = {
   en: {
-    nav: { incidents: 'Incidents', routes: 'Routes', reports: 'Reports', layers: 'Layers', scenarios: 'Scenarios', briefings: 'Briefings' },
-    navCounts: [5, 5, 4, 9, 4, 1],
+    nav: { incidents: 'Incidents', routes: 'Routes', reports: 'Reports', layers: 'Layers', scenarios: 'Scenarios', briefings: 'Briefings', response: 'Response' },
+    navCounts: [5, 5, 4, 9, 4, 1, 0],
     search: 'Search', explore: 'Explore',
     sSituation: 'Situation', dSituation: 'What the latest satellite pass shows.',
     sIncidents: 'Incidents', dIncidents: 'Where to go first.',
@@ -148,8 +148,8 @@ export const STRINGS: Record<Lang, Strings> = {
     places: { a: 'Phra Nakhon Si Ayutthaya', b: 'Ayothaya', c: 'Ho Rattanachai', d: 'Pratu Chai' },
   },
   th: {
-    nav: { incidents: 'เหตุการณ์', routes: 'เส้นทาง', reports: 'รายงาน', layers: 'ชั้นข้อมูล', scenarios: 'สถานการณ์จำลอง', briefings: 'สรุป' },
-    navCounts: [5, 5, 4, 9, 4, 1],
+    nav: { incidents: 'เหตุการณ์', routes: 'เส้นทาง', reports: 'รายงาน', layers: 'ชั้นข้อมูล', scenarios: 'สถานการณ์จำลอง', briefings: 'สรุป', response: 'การตอบสนอง' },
+    navCounts: [5, 5, 4, 9, 4, 1, 0],
     search: 'ค้นหา', explore: 'สำรวจ',
     sSituation: 'สถานการณ์', dSituation: 'ข้อมูลจากดาวเทียมรอบล่าสุด',
     sIncidents: 'เหตุการณ์', dIncidents: 'ควรไปที่ไหนก่อน',
