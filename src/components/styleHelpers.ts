@@ -75,7 +75,7 @@ export function sm(E: EditorialPalette, on: boolean): CSSProperties {
     border: 'none',
     background: 'transparent',
     cursor: 'pointer',
-    font: 'inherit',
+    fontFamily: 'inherit',
     fontSize: 12.5,
     padding: 0,
     color: on ? E.ink : E.mute,

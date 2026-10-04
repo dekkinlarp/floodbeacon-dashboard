@@ -5,10 +5,12 @@ description: "Drive the FloodBeacon dashboard (Vite + React + MapLibre/deck.gl w
 
 # Verify FloodBeacon
 
-FloodBeacon is a single-page React app (Vite dev server, MapLibre GL + deck.gl for
-the 3D flood map). There is no backend, auth, or persistent data — everything reads
-static mock GeoJSON/JSON from `public/mock/`, so verification runs are cheap and
-side-effect-free; restarting always comes back to the same state.
+FloodBeacon is a single-page React app (Vite dev server and MapLibre GL). The
+Routes satellite view reads published Germany observations from the FloodBeacon
+FastAPI backend and shared hosted dev database; small imagery files are served
+by FastAPI. Other tabs read static mock GeoJSON/JSON from `public/mock/`.
+Browser verification is read-only and does not change the shared database. See
+`features/routes-imagery.md` for the API prerequisites.
 
 ## Launch
 

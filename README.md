@@ -16,6 +16,40 @@ Opens on `http://localhost:5173`. The app reads static GeoJSON/JSON from `public
 **does need network** for the CARTO vector basemap, AWS terrain tiles, and Google Fonts — see
 "Not built yet" below.
 
+### Satellite bridge view (Routes)
+
+The **Routes** tab reads Germany's Rech bridge observations from the FloodBeacon
+API. It shows real satellite pixels from 11 February and 18 July 2021, dated
+manual bridge findings, and a separate Copernicus agency assessment. Changing
+date keeps the map camera in place. The square marks a review area; failure time
+and nearby route safety are unknown.
+
+Start the backend in the sibling `floodbeacon-satellite` repo:
+
+```bash
+uv sync --locked
+# Set DATABASE_URL in .env to the shared hosted dev database.
+uv run --locked --env-file .env uvicorn floodbeacon.api:app --reload --port 8000
+```
+
+The processing owner publishes the imagery catalog once to the shared database.
+Frontend developers need no PostgreSQL server, raw imagery, or processing tools.
+Small Git-tracked PNGs are served by FastAPI and placed on the map with their
+geographic corners; this view needs no external basemap or tile service.
+
+In this frontend repo:
+
+```bash
+cp .env.example .env.local
+# Optional: change VITE_FLOODBEACON_API_URL for a remotely hosted API.
+npm run dev
+```
+
+Open **Routes**, change the observation date, pan/zoom, and click the bridge square.
+The default API origin is `http://localhost:8000`; restart Vite after changing it.
+The API also publishes Libya and Nepal cases, while the current Routes demo
+selects `ahr-2021`. Other tabs still use the existing Thailand mock data.
+
 ## What's here
 
 This follows the "FloodBeacon Editorial" design (ported from a design export): raw
@@ -48,7 +82,7 @@ trusting them for a drive.
 
 - **Offline basemap.** The CARTO vector style, AWS terrain tiles, and Google Fonts all need
   network — CLAUDE.md's "must work with no network" rule isn't met yet.
-- Routing view, the field reached/cleared feedback loop, briefing PDF/image download, and
+- Route planning, the field reached/cleared feedback loop, briefing PDF/image download, and
   Gemini/ElevenLabs share outputs — see the build order in `CLAUDE.md`.
 - `flood_polygons.geojson` from teammate 1's satellite pipeline — flood extent is currently
   procedural (synthetic), not real, per `src/lib/geometry.ts`'s header comment.

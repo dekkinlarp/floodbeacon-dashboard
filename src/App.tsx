@@ -13,6 +13,7 @@ import { useJson } from './lib/useJson'
 import { MapCanvas, type IncidentFeature, type MapCanvasHandle } from './map/MapCanvas'
 import { BriefingPage } from './pages/BriefingPage'
 import { LayersScenariosPage, type LonFlags, type ScenarioKey } from './pages/LayersScenariosPage'
+import { RoutesImageryView } from './routes/RoutesImageryView'
 import type { FloodEventMeta, IncidentProperties, Report, RouteProperties, TimeseriesFile } from './types/domain'
 
 const SCN_DELTA: Record<ScenarioKey, number> = { cur: 0, p05: 0.15, p10: 0.3, m05: -0.15 }
@@ -115,7 +116,8 @@ function AppShell() {
   const sideL = side ? 392 : 12
   const isLayersPg = !isPhone && (nav === 'layers' || nav === 'scenarios')
   const isBrief = !isPhone && nav === 'briefings'
-  const isMap = isPhone || nav === 'incidents' || nav === 'routes' || nav === 'reports'
+  const isRoutes = nav === 'routes'
+  const isMap = !isRoutes && (isPhone || nav === 'incidents' || nav === 'reports')
 
   if (!incidentsFc || !routesFc || !reports || !timeseries || !floodEvent || !current) {
     return (
@@ -127,7 +129,7 @@ function AppShell() {
 
   return (
     <div className="relative h-screen w-screen overflow-hidden" style={{ color: ed.ink, fontSize: 13 }}>
-      <MapCanvas
+      {!isRoutes && <MapCanvas
         ref={mapHandleRef}
         view={view}
         layer={layer}
@@ -139,7 +141,9 @@ function AppShell() {
         selectedId={selectedId}
         onSelectIncident={handleSelectIncident}
         sidebarOpen={!isPhone && side}
-      />
+      />}
+
+      {isRoutes && <RoutesImageryView />}
 
       {!isPhone && (
         <TopNav
@@ -153,7 +157,7 @@ function AppShell() {
             setPaletteMode('explore')
             setQuery('')
           }}
-          eventName={eventName ?? ''}
+          eventName={isRoutes ? (lang === 'th' ? 'หุบเขา Ahr · เยอรมนี' : 'Ahr Valley · Germany') : eventName ?? ''}
         />
       )}
 
@@ -202,7 +206,7 @@ function AppShell() {
         </>
       )}
 
-      {isPhone && (
+      {isPhone && !isRoutes && (
         <>
           <PhoneLayerToggle layer={layer} onChange={setLayer} />
           <PhoneSheet stamp={stamp} incidents={incidents} selectedId={selectedId} onSelectIncident={handleSelectIncident} />
